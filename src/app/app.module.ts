@@ -5,6 +5,9 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
+import { routes } from "app/app.routes";
+import { DashboardModule } from "app/dashboard/dashboard.module";
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +15,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    DashboardModule,    
+    routes
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,7 +21,12 @@
       "styles": [
         "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "./assets/js/jquery/jquery.js",
+        "./assets/js/metismenu/metisMenu.js",
+        "./assets/vendor/pace/pace.min.js",
+        "./assets/js/bootstrap/bootstrap.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
