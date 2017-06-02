@@ -1,39 +1,87 @@
-<div class="row">
-  <div class="col-lg-6">
+<div class="row mt-2">
+  <div class="col-md-6">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-sm-6">
         <div class="ibox">
           <div class="ibox-content">
-            <h5>Income</h5>
-            <h1 class="no-margins">886,200</h1>
+            <h5>June 2017 Income</h5>
+            <h1 class="no-margins">{{yearToDateIncome | number: '2.1-2'}}</h1>
             <div class="stat-percent font-bold text-navy">98% <i class="fa fa-bolt"></i></div>
             <small>Total income</small>
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-sm-6">
         <div class="ibox">
           <div class="ibox-content">
-            <h5>Income</h5>
-            <h1 class="no-margins">886,200</h1>
-            <div class="stat-percent font-bold text-navy">98% <i class="fa fa-bolt"></i></div>
+            <h5>Monthly Average Income</h5>
+            <h1 class="no-margins">{{monthlyAverage | number: '2.1-2'}}</h1>
+            <div class="stat-percent font-bold text-navy">48% <i class="fa fa-bolt"></i></div>
             <small>Total income</small>
           </div>
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Yearly Sales Average</h5>
+          </div>
+          <div class="ibox-content">
+            <canvas class=" pie-chart" baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="barChartLegend"
+              [chartType]="barChartType" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-md-6">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Sales Report <small>Excel Format</small></h5>
+          </div>
+          <div class="ibox-content">
+            <div class="text-center">
+              <a data-toggle="modal" class="btn-sm btn-primary" href="#modal-form">Download Sales Report</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>Monthly Income <button class="pull-right" (click)="randomize()">CLICK</button></h5>
+          </div>
+          <div class="ibox-content">
+            <div>
+              <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+                [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12 mb-2">
     <div class="ibox float-e-margins">
       <div class="ibox-title">
-        <h5>Bar Chart Example</h5>
+        <h5>Event Calendar Sales Report</h5>
       </div>
-      <div class="ibox-content">
-        <div>
-          <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
-          <canvas id="barChart" height="226" width="485" style="display: block; width: 485px; height: 226px;"></canvas>
-        </div>
+      <div class="ibox-content calendar-container">
+        <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
       </div>
     </div>
+
   </div>
+
 </div>
