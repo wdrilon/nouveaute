@@ -182,7 +182,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
         {
           title: 'Day Sale 50% Off',
-          start: '2016-09-11',
+          start: '2016-09-11', 
           end: '2016-09-13'
         },
         {
